@@ -2,26 +2,30 @@ package com.programming.employee_recruitment_system.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Position {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "position")
+public class Position extends CommonEntityFields {
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+
+    @Column(name = "title")
     private String title; // Java Developer
-    private String job_description;
+
+    @Column(name = "job_description")
+    private String jobDescription;
 
     @ManyToOne
     @JoinColumn(name = "sub_category_id")

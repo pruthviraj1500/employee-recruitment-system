@@ -2,22 +2,26 @@ package com.programming.employee_recruitment_system.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Screening {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "screening")
+public class Screening extends CommonEntityFields {
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+
+    @Column(name = "is_selected")
     private boolean isSelected;
+
+    @Column(name = "rejection_reason")
     private String rejectionReason;
 
     @ManyToOne

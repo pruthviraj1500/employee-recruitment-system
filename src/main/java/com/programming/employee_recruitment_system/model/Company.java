@@ -1,26 +1,31 @@
 package com.programming.employee_recruitment_system.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Company {
+@Table(name = "company")
+public class Company extends CommonEntityFields {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
-    private String company_name;
+    @Column(name = "company_name")
+    private String companyName;
+
+    @Column(name = "address")
     private String address;
+
+    @Column(name = "industry")
     private String industry;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
