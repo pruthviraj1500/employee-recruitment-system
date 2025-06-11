@@ -2,10 +2,7 @@ package com.programming.employee_recruitment_system.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -13,15 +10,22 @@ import java.util.Set;
 
 @Entity
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class InterviewBatch {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Table(name = "interview_batch")
+public class InterviewBatch extends CommonEntityFields {
 
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+
+    @Column(name = "date")
     private LocalDate date;
+
+    @Column(name = "time_slot")
     private String timeSlot;
 
     @ManyToOne

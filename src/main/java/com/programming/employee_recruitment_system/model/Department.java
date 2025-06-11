@@ -2,25 +2,26 @@ package com.programming.employee_recruitment_system.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Department {
+@Table(name = "department")
+public class Department extends CommonEntityFields {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
-    private String department_name; // HR, SOFTWARE, QA
+    @Column(name = "department_name")
+    private String departmentName; // HR, SOFTWARE, QA
 
     @ManyToOne
     @JoinColumn(name = "company_id")
