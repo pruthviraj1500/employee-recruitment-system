@@ -23,7 +23,7 @@ public class Company extends CommonEntityFields {
     private String companyName;
 
     @Column(name = "address")
-    private String address;
+    private String companyAddress;
 
     @Column(name = "industry")
     private String industry;
