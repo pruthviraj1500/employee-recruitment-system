@@ -23,7 +23,7 @@ public class Department extends CommonEntityFields {
     @Column(name = "department_name")
     private String departmentName; // HR, SOFTWARE, QA
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "company_id")
     private Company company;
 
