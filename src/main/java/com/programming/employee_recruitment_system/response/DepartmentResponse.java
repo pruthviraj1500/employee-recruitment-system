@@ -11,6 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class DepartmentResponse {
+
     private Long id;
 
     private String departmentName;
