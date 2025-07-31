@@ -30,6 +30,6 @@ public class SubCategory extends CommonEntityFields {
 
 //  Bi-directional ----> SubCategory <---> Position
     @OneToMany(mappedBy = "subCategory", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Position> positions = new ArrayList<>();
+    private List<Position> positions;
 
 }
